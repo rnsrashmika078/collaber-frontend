@@ -1,16 +1,12 @@
 "use client";
+
+import { api } from "@/app/libs/axios";
 import { memo, useEffect } from "react";
 
 const GetUser = memo(() => {
   const requestUser = async () => {
-    const res = await fetch("/api/user", {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
-    const result = await res.json();
-    console.log(result);
+    const res = await api.get("/auth/user");
+    console.log(res.data);
   };
   console.log("RENDER");
   useEffect(() => {

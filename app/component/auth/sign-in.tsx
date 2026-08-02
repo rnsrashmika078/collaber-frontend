@@ -11,16 +11,20 @@ const SignIn = () => {
     const email = formData.get("email");
     const password = formData.get("password");
 
-    const res = await fetch("/api/signIn", {
-      method: "POST",
-      headers: {
-        "Content-type": `application/json`,
-      },
-      body: JSON.stringify({ email, password }),
-    });
-    const result = await res.json();
-    console.log("result", result);
-    if (result.user) {
+    // const res = await fetch("/api/signIn", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-type": `application/json`,
+    //   },
+    //   body: JSON.stringify({ email, password }),
+    // });
+    // const result = await res.json();
+    // console.log("result", result);
+
+    const res = await api.post("/auth/login", { email, password });
+    console.log(res.data);
+
+    if (res.data.success) {
       redirect("/home");
     }
   };
