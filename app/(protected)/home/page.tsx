@@ -1,5 +1,7 @@
+import ChatArea from "@/app/component/chat/chatarea";
+
 const page = () => {
-  return null;
+  return <ChatArea />;
 };
 
 export default page;

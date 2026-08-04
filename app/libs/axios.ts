@@ -15,7 +15,6 @@ export const api = axios.create({
 //   (response) => response,
 //   (error) => {
 //     if (error.response?.status === 401) {
-//       // relavant function goes herer
 //     }
 
 //     return Promise.reject(error);

@@ -63,7 +63,7 @@ export const SidebarToggler = ({ children }: { children: ReactNode }) => {
 export const SideBarContent = () => {
   return (
     <div className={`p-5 w-[200px] bg-red-500 h-full`}>
-      SIDE BAR CONTENT GOES HERE
+      SIDE BAR COTENT GOES HERE
     </div>
   );
 };

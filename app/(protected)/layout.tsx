@@ -1,16 +1,19 @@
 import { ReactNode } from "react";
 import { Sidebar } from "../component/sidebar/sidebar";
-import GetUser from "../component/auth/getUser";
-
+import AuthProvider from "../providers/authProvider";
+import SocketProvider from "../providers/socketProvider";
 const layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="bg-white h-full w-full">
-      <GetUser />
-      <div className="flex w-full h-full">
-        <Sidebar />
-        <div className="flex-4 bg-green-500">HI THERE</div>
-      </div>
-    </div>
+    <AuthProvider>
+      <SocketProvider>
+        <div className="bg-white h-full w-full">
+          <div className="flex w-full h-full">
+            <Sidebar />
+            <div className="flex w-full h-full bg-green-500 p-5">{children}</div>
+          </div>
+        </div>
+      </SocketProvider>
+    </AuthProvider>
   );
 };
 
