@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { store } from "./libs/store/reduxStore";
 import { ReduxProvider } from "./providers/reduxProvider";
+import { ThemeProvider } from "./providers/themeProvider";
+import Theme from "./component/theme";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -24,11 +26,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} w-full h-screen antialiased overflow-hidden`}
       >
-        <ReduxProvider>{children}</ReduxProvider>
+        <ThemeProvider>
+          <Theme />
+          <ReduxProvider>{children}</ReduxProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

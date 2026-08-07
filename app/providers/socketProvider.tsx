@@ -8,7 +8,7 @@ const SocketProvider = memo(({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     if (!user) return;
-    createSocketConnection(user);
+    // createSocketConnection(user);
   }, [user]);
 
   return children;

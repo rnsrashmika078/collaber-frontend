@@ -6,10 +6,12 @@ const layout = ({ children }: { children: ReactNode }) => {
   return (
     <AuthProvider>
       <SocketProvider>
-        <div className="bg-white h-full w-full">
+        <div className=" h-full w-full">
           <div className="flex w-full h-full">
             <Sidebar />
-            <div className="flex w-full h-full bg-green-500 p-5">{children}</div>
+            <div className="flex w-full h-full  p-5">
+              {children}
+            </div>
           </div>
         </div>
       </SocketProvider>

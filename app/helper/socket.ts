@@ -20,8 +20,17 @@ export const sendMessage = (data: {
   username: string;
 }) => {
   socket.emit("send-message", {
-    chatId: 1,
+    chatId: data.chatId,
     username: data.username,
     message: data.message,
-  }); // this allow to send message to other user
+  });
+};
+type Message = { message: string; username: string };
+export const receivedMessage = (chatId: number): Message | null => {
+  const channel = `chat_${chatId}`;
+  socket.on(channel, (data) => {
+    return data as Message;
+  });
+
+  return null;
 };
